@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, UUID> {
+
     Optional<Customer> findByIdAndActive(UUID id, Boolean active);
 
 }
