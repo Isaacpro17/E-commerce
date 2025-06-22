@@ -5,6 +5,7 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.ac.auca.ecommerce.core.customer.model.Customer;
+
 import rw.ac.auca.ecommerce.core.customer.repository.ICustomerRepository;
 
 import java.util.Objects;
@@ -30,15 +31,24 @@ public class CustomerServiceImpl implements ICustomerService{
     public Customer updateCustomer(Customer thecustomer) {
         Customer found = findCustomerByIdAndState(thecustomer.getId(),Boolean.TRUE);
         if(Objects.nonNull(found)){
-            found.setActive(Boolean.FALSE);
+            found.setFirstname(thecustomer.getFirstname());
+
+            ///....provide all attributes
             return customerRepository.save(found);
         }
-        return null;
+        throw new ObjectNotFoundException(Customer.class,"Customer not found");
+
     }
 
     @Override
     public Customer deleteCustomer(Customer thecustomer) {
-        return null;
+        Customer found = findCustomerByIdAndState(thecustomer.getId(),Boolean.TRUE);
+        if(Objects.nonNull(found)){
+            found.setActive(Boolean.FALSE);
+            return customerRepository.save(found);
+        }
+        throw new ObjectNotFoundException(Customer.class,"Customer not found");
+
     }
 
     @Override
