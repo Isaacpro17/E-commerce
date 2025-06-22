@@ -30,6 +30,5 @@ public class Product extends AbstractBaseEntity {
     @Column(name = "stock_State",nullable = false)
     @Enumerated(EnumType.STRING)
     private EStockState stockState;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 }

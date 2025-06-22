@@ -12,4 +12,9 @@ public interface ICustomerRepository extends JpaRepository<Customer, UUID> {
 
     Optional<Customer> findByIdAndActive(UUID id, Boolean active);
 
+
+    Optional<Customer> findByEmailAndActive(String email, Boolean active);
+
+
+    Optional<Customer> findAllByActive(boolean active);
 }
