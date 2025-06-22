@@ -1,4 +1,6 @@
-package rw.ac.auca.ecommerce.core.product.repository;
+package rw.ac.auca.ecommerce.core.customer.repository;
+
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
