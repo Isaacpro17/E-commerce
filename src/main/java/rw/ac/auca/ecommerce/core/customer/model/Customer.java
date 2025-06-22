@@ -1,5 +1,6 @@
 package rw.ac.auca.ecommerce.core.customer.model;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Customer {
@@ -10,4 +11,6 @@ public class Customer {
     private String phoneNumber;
     private boolean active;
     private String address;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
